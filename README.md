@@ -37,3 +37,4 @@ Follow along with this [Learn Terraform variables](https://developer.hashicorp.c
     * `var.public_subnet_cidr_blocks`
     * `var.public_subnet_cidr_blocks[1]`
     * `slice(var.private_subnet_cidr_blocks, 0, 3)`
+    * `var.resource_tags["environment"]`
