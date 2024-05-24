@@ -1,8 +1,33 @@
 # Learn Terraform variables
-
-You can use input variables to customize your Terraform configuration with
-values that can be assigned by end users of your configuration. Input variables
-allow users to re-use and customize configuration by providing a consistent
-interface to change how a given configuration behaves.
-
 Follow along with this [Learn Terraform variables](https://developer.hashicorp.com/terraform/tutorials/configuration-language/variables) tutorial.
+
+
+# Goal
+* Deploy on AWS
+  *  Web application + VPC + load balancer + EC2 instances
+* About input variables
+  * to parameterize the configuration
+  * -- interpolated into -- strings
+  * with functions
+  * validations
+
+# Prerequisites
+* Terraform v1.2+
+* [AWS CLI installed locally](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+* AWS account with [associated credentials](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration)
+
+# How to run?
+* `terraform init`
+* `terraform plan`
+  * Problems:
+    * Problem1: NO result
+      * Solution: Update aws.version
+* `terraform apply`
+  * Problems
+    * Problem1: 'Unsupported argument enable_classiclink  and enable_classiclink_dns_support '
+    * Solution: Update modules.version
+
+# Notes
+* Where to locate input variables?
+  * anywhere
+  * 'variables.tf' -- recommended --

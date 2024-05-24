@@ -2,7 +2,9 @@
 # SPDX-License-Identifier: MPL-2.0
 
 provider "aws" {
-  region  = "us-west-2"
+  #region  = "us-west-2"
+  # Via variable
+  region = var.aws_region
 }
 
 data "aws_availability_zones" "available" {
@@ -11,9 +13,11 @@ data "aws_availability_zones" "available" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.19.0"
+  version = "5.8.1"
 
-  cidr = "10.0.0.0/16"
+  #cidr = "10.0.0.0/16"
+  # Via variable
+  cidr = var.vpc_cidr_block
 
   azs             = data.aws_availability_zones.available.names
   private_subnets = ["10.0.101.0/24", "10.0.102.0/24"]
@@ -29,8 +33,8 @@ module "vpc" {
 }
 
 module "app_security_group" {
-  source  = "terraform-aws-modules/security-group/aws//modules/web"
-  version = "4.17.0"
+  source  = "terraform-aws-modules/security-group/aws//modules/web" # submodule
+  version = "5.1.2"
 
   name        = "web-sg-project-alpha-dev"
   description = "Security group for web-servers with HTTP ports open within VPC"
@@ -46,7 +50,7 @@ module "app_security_group" {
 
 module "lb_security_group" {
   source  = "terraform-aws-modules/security-group/aws//modules/web"
-  version = "4.17.0"
+  version = "5.1.2"
 
   name        = "lb-sg-project-alpha-dev"
   description = "Security group for load balancer with HTTP ports open within VPC"
