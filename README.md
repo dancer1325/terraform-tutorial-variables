@@ -18,11 +18,11 @@ Follow along with this [Learn Terraform variables](https://developer.hashicorp.c
 
 # How to run?
 * `terraform init`
-* `terraform plan`
+* `terraform plan -var ec2_instance_type=t2.micro`
   * Problems:
     * Problem1: NO result
       * Solution: Update aws.version
-* `terraform apply`
+* `terraform apply -var ec2_instance_type=t2.micro`
   * Problems
     * Problem1: 'Unsupported argument enable_classiclink  and enable_classiclink_dns_support '
     * Solution: Update modules.version
@@ -38,3 +38,6 @@ Follow along with this [Learn Terraform variables](https://developer.hashicorp.c
     * `var.public_subnet_cidr_blocks[1]`
     * `slice(var.private_subnet_cidr_blocks, 0, 3)`
     * `var.resource_tags["environment"]`
+* ways to assign variables
+  * via CL -- `terraform * -var VariableName=VariableValue` --
+  * via file

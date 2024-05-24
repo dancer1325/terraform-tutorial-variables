@@ -120,7 +120,11 @@ module "ec2_instances" {
   #instance_count     = 2
   # Via variable
   instance_count = var.instance_count
-  instance_type      = "t2.micro"
+
+  #instance_type      = "t2.micro"
+  # Via variable
+  instance_type = var.ec2_instance_type
+
   subnet_ids         = module.vpc.private_subnets[*]
   security_group_ids = [module.app_security_group.security_group_id]
 
