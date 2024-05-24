@@ -40,4 +40,8 @@ Follow along with this [Learn Terraform variables](https://developer.hashicorp.c
     * `var.resource_tags["environment"]`
 * ways to assign variables
   * via CL -- `terraform * -var VariableName=VariableValue` --
-  * via file
+  * via file /
+    * must be named
+      * ‘terraform.tfvars’
+      * ‘*.auto.tfvars’
+      * `terraform … -var-file FileName`
