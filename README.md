@@ -26,6 +26,10 @@ Follow along with this [Learn Terraform variables](https://developer.hashicorp.c
   * Problems
     * Problem1: 'Unsupported argument enable_classiclink  and enable_classiclink_dns_support '
     * Solution: Update modules.version
+* `terraform apply -var='resource_tags={project="my-project",environment="development"}'`
+  * Fail, because there is a variable's validation
+* `terraform destroy`
+  * clean up the infrastructure
 
 # Notes
 * Where to locate input variables?
