@@ -31,3 +31,9 @@ Follow along with this [Learn Terraform variables](https://developer.hashicorp.c
 * Where to locate input variables?
   * anywhere
   * 'variables.tf' -- recommended --
+* `terraform console`
+  * best way to inspect a variable
+  * _Example:_ 
+    * `var.public_subnet_cidr_blocks`
+    * `var.public_subnet_cidr_blocks[1]`
+    * `slice(var.private_subnet_cidr_blocks, 0, 3)`
